@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Violation History</h3>
+
+<form method="GET" class="mb-3">
+    <input type="text" name="vehicle" class="form-control" placeholder="Search by Vehicle Number">
+</form>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Vehicle</th>
+            <th>Violation</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Fine</th>
+            <th>Payment</th>
+            <th>Tamper</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.id }}</td>
+            <td>{{ record.vehicle_number }}</td>
+            <td>{{ record.violation_type }}</td>
+            <td>{{ record.location }}</td>
+            <td>{{ record.date }}</td>
+            <td>₹{{ record.fine_amount }}</td>
+            <td>{{ record.payment_status }}</td>
+            <td>{{ record.tamper_status }}</td>
+            <td>
+                {% if record.payment_status == "Unpaid" %}
+                <a href="/pay/{{ record.id }}" class="btn btn-sm btn-success">Mark Paid</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

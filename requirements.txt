@@ -1,0 +1,7 @@
+flask
+flask_sqlalchemy
+flask_login
+qrcode
+opencv-python
+pytesseract
+Pillow

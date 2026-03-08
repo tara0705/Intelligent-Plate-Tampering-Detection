@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Add Violation Record</h3>
+
+<form method="POST" enctype="multipart/form-data" class="card p-4 shadow">
+
+    <div class="mb-3">
+        <label>Upload Plate Image</label>
+        <input type="file" name="plate_image" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Violation Type</label>
+        <input type="text" name="violation_type" class="form-control" placeholder="No Helmet / Overspeeding" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Location</label>
+        <input type="text" name="location" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Date</label>
+        <input type="date" name="date" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Fine Amount</label>
+        <input type="number" name="fine" class="form-control" required>
+    </div>
+
+    <button class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

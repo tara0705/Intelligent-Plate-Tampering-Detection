@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Violation Recorded Successfully</h3>
+
+<div class="card p-4 shadow">
+    <p><strong>Vehicle:</strong> {{ violation.vehicle_number }}</p>
+    <p><strong>Tamper Status:</strong> {{ violation.tamper_status }}</p>
+    <p><strong>Payment Status:</strong> {{ violation.payment_status }}</p>
+
+    <h5>QR Code:</h5>
+    <img src="/{{ violation.qr_code }}" width="200">
+</div>
+
+{% endblock %}
